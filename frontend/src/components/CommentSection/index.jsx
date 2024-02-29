@@ -9,10 +9,10 @@ export default function commentSection({ poisId }) {
         name: '',
         content: ''
     })
-    useEffect(() => {
-        getComments(poisId)
-            .then(comments => setComments(comments))
-    }, [])
+    // useEffect(() => {
+    //     getComments(poisId)
+    //         .then(comment => setComments(comment))
+    // })
 
 
     function handleInputChange(event) {
@@ -35,7 +35,8 @@ export default function commentSection({ poisId }) {
         event.preventDefault()
         setCreateFormData({
             name: '',
-            content: ''
+            content: '',
+            poisId: `${poisId}`
         })
         setShowCreateForm(false)
         postComment({ ...createFormData, poisId: poisId })
