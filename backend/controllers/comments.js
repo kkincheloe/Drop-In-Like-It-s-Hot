@@ -5,13 +5,20 @@ const router = express.Router()
 
 const db = require('../models')
 
+app.use(express.json());
 
 /* Routes */
 
-router.get('/:poisId', function (req, res) {
-    db.Comment.find({ poisId: req.params.poisId })
-        .then(comments => res.json(comments))
-})
+router.get('/:POI', async (req, res) => {
+    try {
+        const comments = await db.find({ POI: req.params.POI });
+        res.json(comments);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 
 router.post('/', (req, res) => {

@@ -8,7 +8,7 @@ const path = require('path')
 
 const db = require('./models');
 
-const commentsCtrl = require('./controllers/comments')
+const commentsCtrl = require('../controllers/comments')
 
 const app = express();
 
