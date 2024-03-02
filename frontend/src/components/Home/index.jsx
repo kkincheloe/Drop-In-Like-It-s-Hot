@@ -5,6 +5,7 @@ import poiImages from '../../../public/images/poi-images';
 
 const HomePage = () => {
     const [pois, setPois] = useState([]);
+    const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -15,20 +16,35 @@ const HomePage = () => {
         .catch(error => console.error('Error fetching data: ', error));
     }, []);
   
+    const filteredPois = pois.filter(poi =>
+        !searchQuery || poi.name?.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    
+    
+
     return (
         <div>
-          <h1>Fortnite Drops</h1>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {pois.map((poi, index) => (
-              <div key={index} style={{ width: '200px', cursor: 'pointer' }} onClick={() => navigate(`/details/${poi.id}`)}>
-                <h2 style={{ fontSize: '16px', textAlign: 'center' }}>{poi.name}</h2>
-                <img src={poiImages[poi.id] || 'public/images/poi-images'} alt={poi.name} style={{ width: '200px', height: '150px' }} />
-                <Link to={`/details/${poi.id}`} className="text-blue-600 hover:underline">View Details</Link>
+            <h1 style={{backgroundColor: 'rgb(159, 74, 179)', height: '60px', margin: '10px', padding: '10px', fontSize: '48px'}}>Fortnite: Drop In Like It's Hot</h1>
+            {/* Search Bar */}
+            <div style={{ textAlign: 'center', margin: '20px' }}>
+                <input 
+                    type="text" 
+                    placeholder="Search for a drop..." 
+                    value={searchQuery} 
+                    onChange={(e) => setSearchQuery(e.target.value)} 
+                    style={{ width: '300px', padding: '10px', fontSize: '16px' }}
+                />
+            </div>
+            <div style={{display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', border: '10px solid blue'}}>
+            {filteredPois.map((poi, index) => (
+              <div key={index} style={{ width: 'calc(25% - 20px)', cursor: 'pointer', display: 'flex', flexDirection: 'column' }} onClick={() => navigate(`/details/${poi.id}`)}>
+                <h2 style={{ fontSize: '24px', textAlign: 'center', justifyContent: 'center' }}>{poi.name}</h2>
+                <img src={poiImages[poi.id] || 'public/images/poi-images/default.png'} alt={poi.name} style={{ width: '350px', height: '250px', border: '10px solid blue'}} />
               </div>
             ))}
           </div>
         </div>
       );
-  };
-  
-  export default HomePage;
+};
+
+export default HomePage;
