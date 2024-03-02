@@ -9,12 +9,7 @@ export default function commentSection({ poisId }) {
         name: '',
         content: ''
     })
-    // useEffect(() => {
-    //     getComments(poisId)
-    //         .then(comment => setComments(comment))
-    // })
-
-
+   
     function handleInputChange(event) {
         setCreateFormData({
             ...createFormData,
@@ -54,7 +49,7 @@ export default function commentSection({ poisId }) {
             />
         })
     }
-
+    
     let btnText = 'Create'
     if (showCreateForm) {
         btnText = 'Close'
@@ -65,7 +60,7 @@ export default function commentSection({ poisId }) {
             <h1 className='text-xl font-bold'>Comments</h1>
             <button
                 onClick={toggleCreateForm}
-                className="top-0 right-5 absolute text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2"
+                className="top-0 right-5 absolute text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2 "
             >
                 {btnText}
             </button>

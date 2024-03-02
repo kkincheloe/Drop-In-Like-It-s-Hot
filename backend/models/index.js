@@ -12,4 +12,5 @@ db.on('connected', function () {
 
 module.exports = {
     Comment: require('./comment'),
+    User: require('./user')
 }
