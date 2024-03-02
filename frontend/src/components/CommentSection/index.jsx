@@ -44,7 +44,7 @@ export default function commentSection({ poisId }) {
     }
 
 
-    let commentElements = [<p key='0' className='text-center'>No comments yet. Be the first to comment!</p>]
+    let commentElements = [<p key='0' className='text-center'>No comments yet.</p>]
     if (comments.length > 0) {
         commentElements = comments.map(comment => {
             return <Comment

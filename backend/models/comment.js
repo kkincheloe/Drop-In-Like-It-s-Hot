@@ -4,7 +4,7 @@ const commentSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         content: { type: String, required: true },
-        poisId: { type: Number, required: false },
+        poisId: { type: String, required: true },
     },
     { timestamps: true }
 );

@@ -22,8 +22,8 @@ const HomePage = () => {
             {pois.map((poi, index) => (
               <div key={index} style={{ width: '200px', cursor: 'pointer' }} onClick={() => navigate(`/details/${poi.id}`)}>
                 <h2 style={{ fontSize: '16px', textAlign: 'center' }}>{poi.name}</h2>
-                <img src={poiImages[poi.id] || 'backend/poi-images'} alt={poi.name} style={{ width: '50px', height: '50px' }} />
-                <Link to={`/pois/${poi.id}`} className="text-blue-600 hover:underline">View Details</Link>
+                <img src={poiImages[poi.id] || 'public/images/poi-images'} alt={poi.name} style={{ width: '200px', height: '150px' }} />
+                <Link to={`/details/${poi.id}`} className="text-blue-600 hover:underline">View Details</Link>
               </div>
             ))}
           </div>
