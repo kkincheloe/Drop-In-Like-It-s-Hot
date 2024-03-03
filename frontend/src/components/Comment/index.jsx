@@ -51,12 +51,12 @@ export default function Comment({ data, refreshComments }) {
                 <div>
                     <button
                         onClick={() => { setShowEditForm(false) }}
-                        className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                        className="edit-close-button">
                         Close
                     </button>
                     <button
                         type="submit"
-                        className="text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2">
+                        className="edit-post-button">
                         Post
                     </button>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css'; // Make sure this path is correct
+import './styles.css'; 
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,32 +11,36 @@ const Navbar = () => {
         window.location.reload();
     };
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
         <nav className="navbar">
-            <div className="menu-icon" onClick={toggleMenu}>
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
+            <div className="navbar-container">
+                
+                <div className="nav-links">
+                    <Link className="nav-link" to="/">Home</Link>
+                    {!isAuthenticated ? (
+                        <>
+                            <Link className="nav-link" to="/auth/login">Login</Link>
+                            <Link className="nav-link" to="/auth/signup">Sign Up</Link>
+                        </>
+                    ) : (
+                        <button onClick={handleLogout} className="nav-link">Logout</button>
+                    )}
+                </div>
             </div>
-            <Link className="nav-link" to="/">Home</Link>
-            <div className={`menu-content ${isMenuOpen ? 'active' : ''}`}>
-                {!isAuthenticated ? (
-                    <>
-                        <h1 className="nav-title">LogIn or Sign Up to Leave a Comment</h1>
-                        <Link className="nav-link" to="/auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
-                        <Link className="nav-link" to="/auth/signup" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
-                    </>
-                ) : (
-                    <button className="logout-button" onClick={handleLogout}>Logout</button>
-                )}
-            </div>
+            {isMenuOpen && (
+                <div className="mobile-nav-links">
+                    {!isAuthenticated ? (
+                        <>
+                            <Link className="nav-link" to="/auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                            <Link className="nav-link" to="/auth/signup" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
+                        </>
+                    ) : (
+                        <button onClick={handleLogout} className="nav-link">Logout</button>
+                    )}
+                </div>
+            )}
         </nav>
     );
 };
 
 export default Navbar;
-
