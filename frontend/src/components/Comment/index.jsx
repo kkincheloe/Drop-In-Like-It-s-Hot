@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { updateComment, deleteComment } from "../../../utils/backend"
+import './styles.css'
 
 export default function Comment({ data, refreshComments }) {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -42,8 +43,8 @@ export default function Comment({ data, refreshComments }) {
                 <br />
                 <textarea
                     name="content"
-                    className="p-2 my-2 h-[100px] w-[100px] bg-gray-100"
-                    placeholder="Share your thoughts!"
+                    className="p-2 my-2 h-[100px] w-[100px] bg-gray-100 flex-column"
+                    placeholder="Write Your Comment!"
                     value={editFormData.content}
                     onChange={handleInputChange}
                 />
@@ -64,23 +65,15 @@ export default function Comment({ data, refreshComments }) {
 
     } else {
         return (
-            <div
-                className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
-                <p className="font-bold">{data.name}</p>
-                <p className="my-2">{data.content}</p>
+            <div className="comment-container">
+                <p className="comment-name">{data.name}</p>
+                <p className="comment-content">{data.content}</p>
                 <div className="flex justify-end">
-                    <button
-                        onClick={() => { setShowEditForm(true) }}
-                        className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
-                        Edit
-                    </button>
-                    <button
-                        onClick={handleDelete}
-                        className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
-                        Delete
-                    </button>
+                    <button onClick={() => { setShowEditForm(true) }} className="edit-button">Edit</button>
+                    <button onClick={handleDelete} className="delete-button">Delete</button>
                 </div>
             </div>
-        )
+        );
+        
     }
 }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import poiImages from '../../../public/images/poi-images';
 import Navbar from '../NavBar';
+import './styles.css'
 
 const HomePage = () => {
     const [pois, setPois] = useState([]);
@@ -26,26 +27,26 @@ const HomePage = () => {
     return (
         <div>
             <Navbar />
-            <h1 style={{backgroundColor: 'rgb(159, 74, 179)', height: '60px', margin: '10px', padding: '10px', fontSize: '48px'}}>Fortnite: Drop In Like It's Hot</h1>
-            <div style={{ textAlign: 'center', margin: '20px' }}>
+            <h1 className="pageTitle">Fortnite: Drop In Like It's Hot</h1>
+            <div className="searchContainer">
                 <input 
                     type="text" 
-                    placeholder="Search for a drop..." 
+                    placeholder="Search for a drop..."
                     value={searchQuery} 
                     onChange={(e) => setSearchQuery(e.target.value)} 
-                    style={{ width: '300px', padding: '10px', fontSize: '16px' }}
+                    className="searchInput"
                 />
             </div>
-            <div style={{display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center'}}>
-            {filteredPois.map((poi, index) => (
-              <div key={index} style={{ width: 'calc(25% - 20px)', cursor: 'pointer', display: 'flex', flexDirection: 'column' }} onClick={() => navigate(`/details/${poi.id}`)}>
-                <h2 style={{ fontSize: '24px', textAlign: 'center', justifyContent: 'center' }}>{poi.name}</h2>
-                <img src={poiImages[poi.id] || 'public/images/poi-images/default.png'} alt={poi.name} style={{ width: '350px', height: '250px', border: '10px solid rgb(112, 189, 230)',}} />
-              </div>
-            ))}
-          </div>
+            <div className="cardsContainer">
+                {filteredPois.map((poi, index) => (
+                    <div key={index} className="card" onClick={() => navigate(`/details/${poi.id}`)}>
+                        <h2 className="cardTitle">{poi.name}</h2>
+                        <img src={poiImages[poi.id] || 'public/images/poi-images/default.png'} alt={poi.name} className="cardImage" />
+                    </div>
+                ))}
+            </div>
         </div>
-      );
+    );
 };
 
 export default HomePage;

@@ -1,28 +1,42 @@
-// src/components/NavBar/index.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './styles.css'; // Make sure this path is correct
 
 const Navbar = () => {
-    const isAuthenticated = localStorage.getItem('userToken'); // Adjust based on how you handle authentication
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const isAuthenticated = localStorage.getItem('userToken');
 
     const handleLogout = () => {
         localStorage.removeItem('userToken');
-        window.location.reload(); // For immediate UI update, consider using context or global state for a more elegant solution
+        window.location.reload();
+    };
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem', backgroundColor: 'rgb(203, 183, 243)' }}>
-            <Link to="/">Home</Link>
-            {!isAuthenticated ? (
-                <>
-                    <Link to="/auth/login">Login</Link>
-                    <Link to="/auth/signup">Sign Up</Link>
-                </>
-            ) : (
-                <button onClick={handleLogout}>Logout</button>
-            )}
+        <nav className="navbar">
+            <div className="menu-icon" onClick={toggleMenu}>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+            </div>
+            <Link className="nav-link" to="/">Home</Link>
+            <div className={`menu-content ${isMenuOpen ? 'active' : ''}`}>
+                {!isAuthenticated ? (
+                    <>
+                        <h1 className="nav-title">LogIn or Sign Up to Leave a Comment</h1>
+                        <Link className="nav-link" to="/auth/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+                        <Link className="nav-link" to="/auth/signup" onClick={() => setIsMenuOpen(false)}>Sign Up</Link>
+                    </>
+                ) : (
+                    <button className="logout-button" onClick={handleLogout}>Logout</button>
+                )}
+            </div>
         </nav>
     );
 };
 
 export default Navbar;
+

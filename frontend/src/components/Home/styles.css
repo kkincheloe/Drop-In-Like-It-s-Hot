@@ -1,0 +1,83 @@
+/* HomePage.css */
+.pageTitle {
+    background-color: rgb(159, 74, 179);
+    height: 60px;
+    margin: 0;
+    padding: 20px 0; /* Adjust padding for better alignment */
+    text-align: center;
+    color: black;
+}
+
+.searchContainer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.searchInput {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.cardsContainer {
+    background: url('https://wp.clutchpoints.com/wp-content/uploads/2023/12/fortnites-latest-patch-fixes-movement-issues.webp') no-repeat center center/cover;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure items are centered */
+    width: calc(100% - 20px); /* Start with full width on small screens */
+    margin: 10px; /* Add some margin */
+}
+
+.cardTitle {
+    background: white;
+    width: 100%; /* Adjust width */
+    text-align: center;
+}
+
+.cardImage {
+    width: 100%; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+    border: 10px solid rgb(112, 189, 230);
+}
+
+/* Responsive Styles */
+@media (min-width: 500px) {
+    .card {
+        width: calc(100% - 20px); /* 2 columns on medium screens */
+    }
+    .pageTitle {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 600px) {
+    .card {
+        width: calc(50% - 20px); /* 2 columns on medium screens */
+    }
+    .pageTitle {
+        font-size: 32px;
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: calc(33.333% - 20px); /* 3 columns on large screens */
+    }
+    .pageTitle {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: calc(25% - 20px); /* 4 columns on extra large screens */
+    }
+}

@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/details/:poisId" element={<DetailsPage />} />
         <Route path="/auth/:formType" element={<AuthFormPage />} />
+
       </Routes>
     </div>
   );
