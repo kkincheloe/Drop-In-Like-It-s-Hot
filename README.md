@@ -5,35 +5,35 @@
 <summary>Home Page</summary>
 <br>
 The Home Page consists of rows/columns of the named locations in Fortnite. You can browse through, and when you see one you like, click on it to see the details. To leave a comment, login or sign up so people can see your opinion on your latest drop!
-<img src="../drop-in-like-its-hot/readme/homepage.png">
+<img src="./readme/homepage.png">
 </details>
 
 <details>
 <summary>Log In/Sign Up</summary>
 <br>
 Log In or Sign Up to leave comments on any drop location!
-<img src="../drop-in-like-its-hot/readme/loginsignup.png">
+<img src="./readme/loginsignup.png">
 </details>
 
 <details>
 <summary>Detail Page</summary>
 <br>
 The Details Page shows an image of the location and the name of it. You can view comments that have been left by other users to see if that is where you will drop next!
-<img src="../drop-in-like-its-hot/readme/detailspage.png">
+<img src="./readme/detailspage.png">
 </details>
 
 <details>
 <summary>Comments</summary>
 <br>
 Click the create button to share what you have to say! After posting, you can edit or delete your own.
-<img src="../drop-in-like-its-hot/readme/comment.png">
+<img src="./readme/comment.png">
 </details>
 
 <details>
 <summary>Editing a Comment</summary>
 <br>
 Changed your mind about the location? Edit your comment to leave a different message!
-<img src="../drop-in-like-its-hot/readme/editcomment.png">
+<img src="./readme/editcomment.png">
 </details>
 
 ## 🖥️ Technologies Used 🖥️
