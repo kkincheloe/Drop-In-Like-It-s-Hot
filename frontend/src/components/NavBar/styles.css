@@ -32,6 +32,9 @@
     text-decoration: none;
     color: black;
     font-size: 22px;
+    background-color: rgb(203, 183, 243);
+    border: none;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
