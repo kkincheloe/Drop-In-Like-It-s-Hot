@@ -154,6 +154,30 @@ const poiImages = {
     
 
     "Athena.Location.POI.MountainVillage": "/images/pois/HazyHillside.webp",
+
+    
+    "Athena.Location.UnNamedPOI.SummitTemple": "/images/pois/Summit-Temple.webp",
+
+
+    "Athena.Location.UnNamedPOI.CharonsCrossing": "/images/pois/Charons-crossing.jpeg",
+
+
+    "Athena.Location.UnNamedPOI.ArchOlympus": "/images/pois/Screenshot 2024-03-11 at 1.50.46 PM.png",
+
+
+    "Athena.Location.POI.Gate": "/images/pois/grim-gate.webp",
+
+
+    "Athena.Location.POI.Hades": "/images/pois/the-underworld.avif",
+
+
+    "Athena.Location.POI.MountOlympus": "/images/pois/mount-olympus.jpeg",
+
+
+    "Athena.Location.POI.Arena": "/images/pois/brawlers-battleground.jpeg",
+
+
+
     
 }
   
